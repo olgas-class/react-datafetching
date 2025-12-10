@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Card({ personaggio }) {
   const { image, name, status, species, location, episode } = personaggio;
   let color = "bg-secondary";
@@ -28,6 +30,7 @@ export default function Card({ personaggio }) {
             <p>Location: {location.name}</p>
             <p>primo episodio: {episode[0]}</p>
             <p>Ultimo episodio: {episode[episode.length - 1]}</p>
+            <Link to={`/personaggi/${personaggio.id}`}>Vedi dettaglis</Link>
           </div>
         </div>
       </div>
