@@ -4,7 +4,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import CharacterSection from "../components/CharacterSection";
 import BackButton from "../components/BackButton";
 
-export default function SingleCharacter() {
+export default function SingleCharacter({
+  isPreferito,
+  addPreferito,
+  removePreferito,
+}) {
   const { id } = useParams();
   const [character, setCharacter] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -31,7 +35,14 @@ export default function SingleCharacter() {
     <section>
       <BackButton />
       {loading === true && "Loading..."}
-      {character !== null && <CharacterSection character={character} />}
+      {character !== null && (
+        <CharacterSection
+          isPreferito={isPreferito}
+          addPreferito={addPreferito}
+          removePreferito={removePreferito}
+          character={character}
+        />
+      )}
     </section>
   );
 }

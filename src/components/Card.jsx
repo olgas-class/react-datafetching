@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 
-export default function Card({ personaggio }) {
+export default function Card({
+  personaggio,
+  isPreferito,
+  addPreferito,
+  removePreferito,
+}) {
   const { image, name, status, species, location, episode } = personaggio;
   let color = "bg-secondary";
   if (status === "Alive") {
@@ -17,6 +22,19 @@ export default function Card({ personaggio }) {
         </div>
         <div className="col-md-8">
           <div className="card-body">
+            <button
+              onClick={() =>
+                isPreferito(personaggio.id)
+                  ? removePreferito(personaggio.id)
+                  : addPreferito(personaggio.id)
+              }
+            >
+              {isPreferito(personaggio.id) ? (
+                <i className="bi bi-suit-heart-fill"></i>
+              ) : (
+                <i className="bi bi-suit-heart"></i>
+              )}
+            </button>
             <h5 className="card-title">{name}</h5>
             <p className="card-text">
               <span

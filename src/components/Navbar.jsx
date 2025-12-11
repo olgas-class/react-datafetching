@@ -10,6 +10,10 @@ export default function Navbar() {
       title: "Personaggi",
       path: "/personaggi",
     },
+    {
+      title: "Preferiti",
+      path: "/personaggi/preferiti",
+    },
   ];
 
   return (
